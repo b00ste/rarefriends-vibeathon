@@ -3,7 +3,7 @@
 - **Builder/contact:** [b00ste](https://github.com/b00ste)
 - **Category:** Character Spotlight / multiplayer strategy
 - **Source:** [b00ste/farfield](https://github.com/b00ste/farfield)
-- **Playable demo:** [Launch Farfield](https://4173--main--ai-dev-01--daniel.kethalia.com/?submission=1)
+- **Playable demo:** [Launch Farfield](https://farfield.fun/?submission=1)
 
 Your Rare Friend leads a tetromino space station: build paths, assign workers, fight rival commanders and contest four shared monoliths.
 
@@ -53,9 +53,9 @@ Open `http://localhost:4173/?submission=1`. This needs a Node backend; static ho
 
 See the source repository's `docs/LIVE-PLAYTEST.md` for live four-session evidence and `docs/VALIDATION.md` for the broader regression history. Browser tests emulate wallets and canonical NFT RPC responses while using the real game server; they do not impersonate real assets in the deployed app. Physical iOS/Android wallet handoff and gameplay remain unverified.
 
-Four live browser sessions completed a seven-minute crowded match with 240 buildings and 256 workers, without API or page errors. A separate live match verified shared capture, contesting, combat and an agreed winner. Higher-concurrency HTTP testing exposed a development-proxy rate limit at 16 clients, despite the direct server passing the same load. The demo is for small free playtests; larger public hosting remains outstanding.
+The latest seven-minute four-browser stress run completed with 230 buildings, 256 workers and 486 commands, without game, page or HTTP errors. Authenticated event streams replaced polling after an earlier run exposed the development proxy's request limit. A separate live match verified shared capture, contesting, combat and an agreed winner. The public beta now runs on dedicated AWS resources with game and API domains, HTTPS, persistent match snapshots and private backups. The [current source review](https://github.com/b00ste/farfield/pull/1) includes the deployment and latest validation record. Larger player counts remain unverified.
 
-Early access: heuristic AI and human balance need more playtesting. Rooms are in memory and reset when the server restarts; the same tab can recover its seat after a reload and wallet/Friend revalidation. Closing the tab or switching devices does not preserve a practice seat. Online absence beyond 60 seconds forfeits while a rival is active. The demo runs on a development workspace and is available while that workspace and Node server are running; no production uptime guarantee.
+Early access: heuristic AI and human balance need more playtesting. Free matches checkpoint every five seconds and on graceful shutdown; a crash may lose changes since the last checkpoint. The same tab can recover its seat after a reload and wallet/Friend revalidation. Closing the tab or switching devices does not preserve a practice seat. Online absence beyond 60 seconds forfeits while a rival is active. This is a single-server beta without automatic failover or an uptime guarantee. Real-device wallet switching remains unverified.
 
 ## Credits
 
